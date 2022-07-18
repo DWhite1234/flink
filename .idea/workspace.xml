@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c55bb74b-e9a9-4c38-9400-97358c09de22" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="ScalaTest Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="$PROJECT_DIR$/../../../develop/localRepo" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../../../develop/apache-maven-3.8.2" />
+        <option name="useMavenConfig" value="true" />
+        <option name="userSettingsFile" value="$PROJECT_DIR$/../../../develop/apache-maven-3.8.2/conf/settings_bak.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="2BWieGmsL0vxA3iXP2gYe4pwmBm" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.MUnit": "munit.FunSuite",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "MavenSettings"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+      <recent name="munit.FunSuite" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="utils" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="utils" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="sum_alert" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Demo6">
+    <configuration name="BatchDemoBroadcast" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sum_alert.BatchDemoBroadcast" />
+      <module name="flink-test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sum_alert.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Demo5" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sum_alert.Demo5" />
+      <module name="flink-test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sum_alert.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Demo6" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sum_alert.Demo6" />
+      <module name="flink-test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sum_alert.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Demo7" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sum_alert.Demo7" />
+      <module name="flink-test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sum_alert.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Demo8" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sum_alert.Demo8" />
+      <module name="flink-test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sum_alert.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Demo6" />
+        <item itemvalue="Application.Demo8" />
+        <item itemvalue="Application.Demo7" />
+        <item itemvalue="Application.Demo5" />
+        <item itemvalue="Application.BatchDemoBroadcast" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c55bb74b-e9a9-4c38-9400-97358c09de22" name="Changes" comment="" />
+      <created>1657028335175</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1657028335175</updated>
+      <workItem from="1657028336236" duration="5574000" />
+      <workItem from="1657074369711" duration="107000" />
+      <workItem from="1657074481266" duration="14617000" />
+      <workItem from="1657185526754" duration="998000" />
+      <workItem from="1657186531202" duration="5367000" />
+      <workItem from="1657260857057" duration="815000" />
+      <workItem from="1657263920817" duration="9000" />
+      <workItem from="1657501324964" duration="612000" />
+      <workItem from="1657505769248" duration="4652000" />
+      <workItem from="1657553654991" duration="14189000" />
+      <workItem from="1657640187775" duration="1515000" />
+      <workItem from="1657700826677" duration="1254000" />
+      <workItem from="1657706055143" duration="1909000" />
+      <workItem from="1657711970723" duration="4501000" />
+      <workItem from="1658108838233" duration="213000" />
+    </task>
+    <servers />
+  </component>
+</project>
