@@ -23,7 +23,7 @@ public class JDBCutils {
      */
     static {
         try {
-            InputStream inputStream = JDBCutils.class.getClassLoader().getResourceAsStream("druid.properties");
+            InputStream inputStream = JDBCutils.class.getClassLoader().getResourceAsStream("test/druid.properties");
             props.load(inputStream);
             ds = DruidDataSourceFactory.createDataSource(props);
         } catch (Exception e) {

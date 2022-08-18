@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>flink-test</artifactId>
+    <artifactId>packageTest</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -74,12 +74,12 @@
                                     </excludes>
                                 </filter>
                             </filters>
-                                <transformers>
-                                    <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                        <!-- 设置jar包的入口类(可选) -->
-                                        <mainClass>AggProces</mainClass>
-                                    </transformer>
-                                </transformers>
+                            <!--                            <transformers>-->
+                            <!--                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">-->
+                            <!--                                    &lt;!&ndash; 设置jar包的入口类(可选) &ndash;&gt;-->
+                            <!--                                    <mainClass>com.myouchai.position.AccountAlert</mainClass>-->
+                            <!--                                </transformer>-->
+                            <!--                            </transformers>-->
                         </configuration>
                     </execution>
                 </executions>
@@ -92,5 +92,4 @@
             </resource>
         </resources>
     </build>
-
 </project>
