@@ -4,8 +4,6 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
-
 @Data
 public class Loan {
     private String id;
@@ -24,7 +22,11 @@ public class Loan {
     /**
      * 币种
      */
-    private String currentType;
+    private String currency;
+    /**
+     * 贷款期限
+     */
+    private Integer loanPeriod;
     /**
      * 放款金额
      */
@@ -38,28 +40,56 @@ public class Loan {
      */
     private Date endTime;
     /**
-     * 一级机构-总行
+     * 贷款品种
      */
-    private String first;
+    private String LoanType;
     /**
-     * 二级机构-分行/直属支行
+     * 是否科技贷款
      */
-    private String second;
+    private boolean isScienceLoan;
     /**
-     * 三级机构-支行
+     * 是否新基建
      */
-    private String third;
+    private boolean isInfrastructureLoan;
     /**
-     * 四级机构-团队
+     * 担保方式
      */
-    private String forth;
+    private String guaranteeType;
     /**
-     * 五级机构-客户经理
+     * 四级分类
      */
-    private String fifth;
+    private String forthClassification;
     /**
-     * 贷款标签 用string/list
+     * 五级分类
      */
-    private List<String> list;
+    private String fifthClassification;
+    /**
+     * 抵质押物类型
+     */
+    private String pledgeType;
+    /**
+     * 抵质押物名称
+     */
+    private String pledgeName;
+    /**
+     * 抵质押物所有人
+     */
+    private String pledgeOwner;
+    /**
+     * 保证人
+     */
+    private String guarantor;
+    /**
+     * 支付方式
+     */
+    private String payType;
+    /**
+     * 层级关系
+     */
+    private String keyBy;
+    /**
+     * 贷款标签
+     */
+    private String loanLable;
 
 }

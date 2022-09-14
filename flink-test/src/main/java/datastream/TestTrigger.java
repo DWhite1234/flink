@@ -9,6 +9,7 @@ import org.apache.flink.api.common.eventtime.SerializableTimestampAssigner;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.api.common.state.ValueState;
 import org.apache.flink.api.common.state.ValueStateDescriptor;
+import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.windowing.ProcessWindowFunction;
 import org.apache.flink.streaming.api.windowing.assigners.TumblingEventTimeWindows;
@@ -29,7 +30,7 @@ public class TestTrigger {
         env.socketTextStream("localhost", 999)
                 .map(data -> JSON.parseObject(data, Person.class))
                 .assignTimestampsAndWatermarks(
-                        WatermarkStrategy.<Person>forBoundedOutOfOrderness(Duration.ZERO)
+                        WatermarkStrategy.<Person>forBoundedOutOfOrderness(Duration.ofMinutes(2))
                                 .withTimestampAssigner(new SerializableTimestampAssigner<Person>() {
                                     @Override
                                     public long extractTimestamp(Person element, long recordTimestamp) {
@@ -38,15 +39,58 @@ public class TestTrigger {
                                 }))
                 .keyBy(Person::getName)
                 .window(TumblingEventTimeWindows.of(Time.minutes(1)))
-                .trigger(new MtTrigger())
+                .trigger(new MyTrigger())
                 .process(new ProcessWindowFunction<Person, String, String, TimeWindow>() {
                     @Override
-                    public void process(String s, ProcessWindowFunction<Person, String, String, TimeWindow>.Context context, Iterable<Person> elements, Collector<String> out) throws Exception {
-                        out.collect(elements.iterator().next().toString());
+                    public void open(Configuration parameters) throws Exception {
+                        System.out.println("初始化.....");
                     }
-                }).print();
+
+                    @Override
+                    public void process(String s, ProcessWindowFunction<Person, String, String, TimeWindow>.Context context, Iterable<Person> elements, Collector<String> out) throws Exception {
+                        System.out.println("elements:"+elements);
+                    }
+                });
 
         env.execute();
+    }
+
+    @Slf4j
+    private static class MyTrigger extends Trigger<Person, TimeWindow> {
+        @Override
+        public TriggerResult onElement(Person element, long timestamp, TimeWindow window, TriggerContext ctx) throws Exception {
+            ValueState<Long> timer = ctx.getPartitionedState(new ValueStateDescriptor<Long>("timer", Long.class));
+            if (window.maxTimestamp() <= ctx.getCurrentWatermark()) {
+                return TriggerResult.FIRE;
+            } else {
+                if (timer.value()==null) {
+                    long end = window.getEnd();
+                    long start = window.getStart();
+                    long count = (end - start);
+                    long onTime = System.currentTimeMillis() + count;
+                    ctx.registerProcessingTimeTimer(onTime);
+                    timer.update(onTime);
+                    System.out.println();
+                    System.out.printf("注册定时器:%s,当前元素:%s", onTime,element);
+                }
+                return TriggerResult.CONTINUE;
+            }
+        }
+
+        @Override
+        public TriggerResult onProcessingTime(long time, TimeWindow window, TriggerContext ctx) throws Exception {
+            return time >= window.maxTimestamp() ? TriggerResult.FIRE : TriggerResult.CONTINUE;
+        }
+
+        @Override
+        public TriggerResult onEventTime(long time, TimeWindow window, TriggerContext ctx) throws Exception {
+            return time >= window.maxTimestamp() ? TriggerResult.FIRE : TriggerResult.CONTINUE;
+        }
+
+        @Override
+        public void clear(TimeWindow window, TriggerContext ctx) throws Exception {
+            ctx.deleteEventTimeTimer(window.maxTimestamp());
+        }
     }
 
     @Slf4j

@@ -1,0 +1,15 @@
+
+q
+java:S1104"VMake nebulaPool a static final constant or non-public and provide accessors if needed.(çî¼·ûÿÿÿÿ
+i
+java:S1104"SMake session a static final constant or non-public and provide accessors if needed.(şõòÑ
+g
+java:S1104"RMake result a static final constant or non-public and provide accessors if needed.(ëÄÉ$
+K
+java:S1444"0Make this "public static nebulaPool" field final(çî¼·ûÿÿÿÿ
+C
+java:S1444"-Make this "public static session" field final(şõòÑ
+A
+java:S1444",Make this "public static result" field final(ëÄÉ$
+P
+java:S1118":Add a private constructor to hide the implicit public one.(¤Œª

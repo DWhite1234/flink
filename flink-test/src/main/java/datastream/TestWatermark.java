@@ -22,7 +22,7 @@ public class TestWatermark {
 
         env.socketTextStream("localhost", 999)
                 .map(data -> JSON.parseObject(data, Person.class))
-                .assignTimestampsAndWatermarks(WatermarkStrategy.<Person>forBoundedOutOfOrderness(Duration.ZERO)
+                .assignTimestampsAndWatermarks(WatermarkStrategy.<Person>forBoundedOutOfOrderness(Duration.ofSeconds(5))
                         .withTimestampAssigner(new SerializableTimestampAssigner<Person>() {
                             @Override
                             public long extractTimestamp(Person element, long recordTimestamp) {
@@ -31,7 +31,7 @@ public class TestWatermark {
                         }))
                 .keyBy(Person::getName)
                 .window(TumblingEventTimeWindows.of(Time.seconds(5)))
-                .trigger(CountTrigger.of(1))
+//                .trigger(CountTrigger.of(1))
                 .process(new ProcessWindowFunction<Person, Person, String, TimeWindow>() {
                     @Override
                     public void process(String s, ProcessWindowFunction<Person, Person, String, TimeWindow>.Context context, Iterable<Person> elements, Collector<Person> out) throws Exception {

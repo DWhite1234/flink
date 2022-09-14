@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="position-flink-1.0-SNAPSHOT (2)">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/position-flink-1.0-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/position-flink-1.0-SNAPSHOT.jar!/" />
+    </SOURCES>
+  </library>
+</component>
