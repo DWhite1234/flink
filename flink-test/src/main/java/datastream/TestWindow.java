@@ -26,6 +26,7 @@ public class TestWindow {
                 .map(data -> JSON.parseObject(data, Person.class))
                 .assignTimestampsAndWatermarks(
                         WatermarkStrategy.<Person>forBoundedOutOfOrderness(Duration.ZERO)
+                                .withIdleness(Duration.ofSeconds(10))
                                 .withTimestampAssigner(new SerializableTimestampAssigner<Person>() {
                                     @Override
                                     public long extractTimestamp(Person element, long recordTimestamp) {
@@ -34,7 +35,7 @@ public class TestWindow {
                                 }))
                 .keyBy(Person::getName)
                 .window(TumblingEventTimeWindows.of(Time.minutes(1)))
-                .trigger(CountTrigger.of(1))
+//                .trigger(CountTrigger.of(1))
 //                .allowedLateness(Time.seconds(2))
                 .process(new ProcessWindowFunction<Person, String, String, TimeWindow>() {
                     @Override
@@ -52,7 +53,8 @@ public class TestWindow {
                         }
                         out.collect(sum+"-"+watermark);
                     }
-                }).print();
+                })
+                .print();
 
 
         env.execute();

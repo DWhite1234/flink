@@ -12,6 +12,7 @@ import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.co.KeyedBroadcastProcessFunction;
 import org.apache.flink.streaming.api.functions.co.KeyedCoProcessFunction;
+import org.apache.flink.table.planner.expressions.In;
 import org.apache.flink.util.Collector;
 
 public class TestBroadCast {
@@ -44,6 +45,22 @@ public class TestBroadCast {
                     }
                 }).print();
 
+        broad2.keyBy(Person::getAge)
+                .connect(broadcastStream)
+                        .process(new KeyedBroadcastProcessFunction<Integer, Person, Person, String>() {
+                            @Override
+                            public void processElement(Person value, KeyedBroadcastProcessFunction<Integer, Person, Person, String>.ReadOnlyContext ctx, Collector<String> out) throws Exception {
+
+                            }
+
+                            @Override
+                            public void processBroadcastElement(Person value, KeyedBroadcastProcessFunction<Integer, Person, Person, String>.Context ctx, Collector<String> out) throws Exception {
+                                BroadcastState<String, String> broadcastState = ctx.getBroadcastState(broadCast);
+                                System.out.println("第二个广播1:"+broadcastState.entries());
+                                broadcastState.put(value.getAge().toString(),value.toString());
+                                System.out.println("第二个广播2:"+broadcastState.entries());
+                            }
+                        });
         env.execute();
 
 

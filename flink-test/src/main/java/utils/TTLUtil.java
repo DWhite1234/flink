@@ -16,7 +16,7 @@ public class TTLUtil {
         return  StateTtlConfig
                 .newBuilder(timeUnit)
                 .setUpdateType(StateTtlConfig.UpdateType.OnCreateAndWrite)
-                .setStateVisibility(StateTtlConfig.StateVisibility.ReturnExpiredIfNotCleanedUp)
+                .setStateVisibility(StateTtlConfig.StateVisibility.NeverReturnExpired)
                 .build();
     }
 

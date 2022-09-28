@@ -30,13 +30,23 @@
     </properties>
 
     <dependencies>
-<!--        cglib 属性复制-->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-runtime-web_2.12</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.bahir</groupId>
+            <artifactId>flink-connector-redis_2.12</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+        <!--        cglib 属性复制-->
         <dependency>
             <groupId>cglib</groupId>
             <artifactId>cglib</artifactId>
             <version>3.2.9</version>
         </dependency>
-<!--        websocket-->
+        <!--        websocket-->
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
@@ -47,7 +57,7 @@
             <artifactId>javax.websocket-api</artifactId>
             <version>1.1</version>
         </dependency>
-<!--     iceberg hadoop catalog -->
+        <!--     iceberg hadoop catalog -->
         <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-client</artifactId>
@@ -65,12 +75,12 @@
             <version>${flink.version}</version>
         </dependency>
 
-<!--        nebula client-->
+        <!--        nebula client-->
         <dependency>
             <groupId>com.vesoft</groupId>
             <artifactId>client</artifactId>
             <version>${nebula.version}</version>
-<!--            和hadoop-client中的guava冲突 -->
+            <!--            和hadoop-client中的guava冲突 -->
             <exclusions>
                 <exclusion>
                     <groupId>com.google.guava</groupId>
@@ -99,7 +109,7 @@
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-streaming-java_2.12</artifactId>
             <version>${flink.version}</version>
-<!--            和hadoop-client中的guava冲突 -->
+            <!--            和hadoop-client中的guava冲突 -->
             <exclusions>
                 <exclusion>
                     <groupId>com.google.guava</groupId>
@@ -126,7 +136,7 @@
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-table-planner-blink_2.12</artifactId>
             <version>${flink.version}</version>
-<!--            和hive-exec 中的 calcite-core冲突 -->
+            <!--            和hive-exec 中的 calcite-core冲突 -->
             <exclusions>
                 <exclusion>
                     <groupId>org.apache.calcite.avatica</groupId>
@@ -185,5 +195,4 @@
             <version>1.2.78</version>
         </dependency>
     </dependencies>
-
 </project>

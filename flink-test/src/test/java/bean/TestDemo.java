@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 public class TestDemo {
 
@@ -34,5 +35,14 @@ public class TestDemo {
         }else {
             person.setAge(person.getAge() + 1);
         }
+    }
+
+    private final ArrayList<String> list = new ArrayList<>();
+    @Test
+    public void demo3() {
+
+        list.add("2");
+
+        System.out.println(list);
     }
 }
