@@ -12,6 +12,7 @@
         <module>flink-test</module>
         <module>flink-utils</module>
         <module>packageTest</module>
+        <module>dataFuture</module>
     </modules>
 
     <properties>
