@@ -3,8 +3,11 @@ package datastream;
 
 import bean.Person;
 import com.alibaba.fastjson.JSON;
+import com.esotericsoftware.minlog.Log;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.flink.api.common.eventtime.SerializableTimestampAssigner;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
+import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.windowing.ProcessWindowFunction;
 import org.apache.flink.streaming.api.windowing.assigners.TumblingEventTimeWindows;
@@ -14,7 +17,7 @@ import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 import org.apache.flink.util.Collector;
 
 import java.time.Duration;
-
+@Slf4j
 public class TestWatermark {
     public static void main(String[] args) throws Exception {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
@@ -30,14 +33,17 @@ public class TestWatermark {
                             }
                         }))
                 .keyBy(Person::getName)
-                .window(TumblingEventTimeWindows.of(Time.seconds(5)))
-//                .trigger(CountTrigger.of(1))
+                .window(TumblingEventTimeWindows.of(Time.seconds(10)))
+//                .allowedLateness(Time.seconds(2))
                 .process(new ProcessWindowFunction<Person, Person, String, TimeWindow>() {
                     @Override
                     public void process(String s, ProcessWindowFunction<Person, Person, String, TimeWindow>.Context context, Iterable<Person> elements, Collector<Person> out) throws Exception {
-                        System.out.println("Watermark" + context.currentWatermark());
+                        long start = context.window().getStart();
+                        System.out.println("窗口开始:" + start + ",窗口数据:" + elements);
                     }
-                }).print();
+                });
+
+
 
         env.execute();
                 

@@ -3,7 +3,6 @@ package datastream;
 
 import bean.Person;
 import com.alibaba.fastjson.JSON;
-import com.mysql.cj.log.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.flink.api.common.eventtime.SerializableTimestampAssigner;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;

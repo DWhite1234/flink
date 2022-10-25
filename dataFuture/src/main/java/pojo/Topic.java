@@ -1,6 +1,5 @@
 package pojo;
 
-import com.myouchai.infoex.core.processor.qo.ClusterInfo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -48,5 +47,5 @@ public class Topic {
     /**
      * 外部集群鉴权信息
      */
-    private ClusterInfo clusterInfo;
+    //private ClusterInfo clusterInfo;
 }

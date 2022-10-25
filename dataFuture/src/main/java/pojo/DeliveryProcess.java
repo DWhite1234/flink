@@ -31,10 +31,10 @@ public class DeliveryProcess {
 
     private List<String> targetTopicCodes;
 
-    private List<TransferRule> transferRuleVos;
+    //private List<TransferRule> transferRuleVos;
 
     /** 过滤规则 */
-    private List<FilterRule> filterRuleVos;
+    //private List<FilterRule> filterRuleVos;
 
     private String postman;
 
